@@ -1,0 +1,13 @@
+﻿<IfModule mod_rewrite.c>
+    Options -MultiViews
+    RewriteEngine On
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+SetEnv APP_ENV prod
+SetEnv APP_DEBUG 0
+SetEnv LANGUAGE pt_BR
+SetEnv DATABASE_URL "mysql://novosga:150769@127.0.0.1:3306/novosga2?serverVersion=8.3.0&charset=utf8mb4"
