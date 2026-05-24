@@ -24,7 +24,7 @@
       </trans-unit>
       <trans-unit id="5">
         <source>label.priority</source>
-        <target>Prioridade</target>
+        <target>Prioridade de senha</target>
       </trans-unit>
       <trans-unit id="6">
         <source>label.customer</source>
@@ -224,7 +224,7 @@
       </trans-unit>
       <trans-unit id="52">
         <source>label.priority</source>
-        <target>Prioridade</target>
+        <target>Prioridade de senha</target>
       </trans-unit>
       <trans-unit id="53">
         <source>error.queue.empty</source>

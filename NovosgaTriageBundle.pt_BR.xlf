@@ -4,15 +4,15 @@
     <body>
       <trans-unit id="0">
         <source>module.name</source>
-        <target>Recepção</target>
+        <target>Emissão de senhas</target>
       </trans-unit>
       <trans-unit id="1">
         <source>title</source>
-        <target>Recepção</target>
+        <target>Emissão de senhas</target>
       </trans-unit>
       <trans-unit id="2">
         <source>subtitle</source>
-        <target>Emissão de senhas</target>
+        <target>Gerar uma senha:</target>
       </trans-unit>
       <trans-unit id="3">
         <source>button.find</source>
@@ -28,7 +28,7 @@
       </trans-unit>
       <trans-unit id="6">
         <source>label.priority</source>
-        <target>Prioridade</target>
+        <target>Prioridade de senha</target>
       </trans-unit>
       <trans-unit id="7">
         <source>label.total</source>
@@ -132,7 +132,7 @@
       </trans-unit>
       <trans-unit id="41">
         <source>label.triage</source>
-        <target>Recepção</target>
+        <target>Emissão de Senhas</target>
       </trans-unit>
       <trans-unit id="42">
         <source>label.ticket.user</source>
@@ -176,7 +176,7 @@
       </trans-unit>
       <trans-unit id="55">
         <source>label.priority</source>
-        <target>Prioridade</target>
+        <target>Prioridade de senha</target>
       </trans-unit>
       <trans-unit id="56">
         <source>label.ticket</source>
