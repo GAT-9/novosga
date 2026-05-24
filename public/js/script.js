@@ -237,7 +237,7 @@ const App = {
         },
         show: function(title, content) {
             if (this.allowed()) {
-                new Notification(title, { body: content, icon: App.baseUrl + '/images/favicon.png' });
+                new Notification(title, { body: content, icon: App.baseUrl + '/images/novosga-login.png' });
             } else {
                 this.request();
             }
