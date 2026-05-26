@@ -66,8 +66,8 @@ jobs:
 
       - name: Yaml Lint
         run: |
-          bin/console lint:yaml config
-          bin/console lint:yaml translations
+          php bin/console lint:yaml config
+          php bin/console lint:yaml translations
 
       - name: Doctrine Migrations
         run: bin/console doctrine:migrations:migrate --no-interaction
