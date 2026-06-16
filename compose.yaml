@@ -21,7 +21,7 @@ services:
       NOVOSGA_ADMIN_PASSWORD: '123456'
       NOVOSGA_ADMIN_FIRSTNAME: 'Administrador'
       NOVOSGA_ADMIN_LASTNAME: 'Global'
-      NOVOSGA_UNITY_NAME: 'Unidade Vereador Durval Samuel de Souza - Andaia'
+      NOVOSGA_UNITY_NAME: 'Secretaria de Saúde - HOME'
       NOVOSGA_UNITY_CODE: 'U01'
       NOVOSGA_NOPRIORITY_NAME: 'Normal'
       NOVOSGA_NOPRIORITY_DESCRIPTION: 'Atendimento normal'
@@ -54,6 +54,8 @@ services:
     environment:
       VUE_APP_API_BASE_URL: http://localhost
       VUE_APP_MERCURE_URL: http://localhost:3000/.well-known/mercure
+    volumes:
+      - ./panel-custom:/usr/share/nginx/html
 
   mysqldb:
     image: mysql:8.0
