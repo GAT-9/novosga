@@ -18,8 +18,20 @@ function storageSet(key, value) {
   localStorage.setItem(`painel-web.v2.${key}`, JSON.stringify(value));
 }
 
-function getConfig() {
-  return storageGet("config");
+async function getConfig() {
+  const local = storageGet("config");
+
+  if (local && local.clientId && local.clientSecret) {
+    return local;
+  }
+
+  const resp = await fetch("config.json");
+
+  if (!resp.ok) {
+    return null;
+  }
+
+  return await resp.json();
 }
 
 function isTokenValid() {
@@ -86,7 +98,7 @@ async function renovarToken(config) {
 }
 
 async function garantirToken() {
-  const config = getConfig();
+  const config = await getConfig();
 
   if (!config) {
     mostrarErro("Painel não configurado", "Configure server, unidade e credenciais.");
@@ -117,7 +129,7 @@ function atualizarHora() {
 }
 
 async function carregarChamadas() {
-  const config = getConfig();
+  const config = await getConfig();
 
   if (!config) {
     mostrarErro("Painel não configurado", "Abra as configurações primeiro.");
@@ -204,10 +216,6 @@ function tocarAlerta(alerta) {
 
 function falar(nome, local) {
   if (!("speechSynthesis" in window)) return;
-
-  const config = getConfig();
-
-  if (config && config.speech === false) return;
 
   speechSynthesis.cancel();
 
