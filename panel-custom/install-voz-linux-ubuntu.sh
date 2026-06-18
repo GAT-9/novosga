@@ -2,24 +2,32 @@
 
 set -e
 
-echo "Instalando RHVoice..."
+echo "Verificando Snap..."
 
 if ! command -v snap >/dev/null 2>&1; then
-  echo "Snap não encontrado."
   echo "Instalando snapd..."
   sudo apt update
   sudo apt install -y snapd
 fi
 
-sudo snap install rhvoice
+echo "Instalando RHVoice..."
+sudo snap install rhvoice || true
+
+RHVOICE_VM="/snap/bin/rhvoice.vm"
+RHVOICE_TEST="/snap/bin/rhvoice.test"
+
+if [ ! -f "$RHVOICE_VM" ]; then
+  echo "Erro: rhvoice.vm não foi encontrado em /snap/bin."
+  echo "Tente reiniciar o computador e executar novamente."
+  exit 1
+fi
 
 echo "Instalando voz Letícia..."
-sudo rhvoice.vm -i Letícia-F123
+sudo "$RHVOICE_VM" -i Letícia-F123
 
 echo "Testando voz..."
-echo "Olá, estou aqui!" | rhvoice.test
+echo "Olá, estou aqui!" | "$RHVOICE_TEST"
 
 echo ""
 echo "Instalação concluída."
 echo "Feche e abra o navegador novamente."
-echo "Se a voz não aparecer, reinicie o computador."
