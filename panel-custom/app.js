@@ -127,6 +127,36 @@ function atualizarHora() {
   document.getElementById("hora").textContent =
     new Date().toLocaleTimeString("pt-BR");
 }
+function abreviarNome(nome, limite = 20) {
+  if (!nome) return "";
+
+  nome = nome.trim();
+
+  if (nome.length <= limite) {
+    return nome;
+  }
+
+  const partes = nome.split(" ").filter(Boolean);
+
+  if (partes.length <= 2) {
+    return nome.slice(0, limite - 3) + "...";
+  }
+
+  let resultado = nome;
+
+  for (let i = partes.length - 1; i >= 1; i--) {
+    partes[i] = `${partes[i][0]}.`;
+    resultado = partes.join(" ");
+
+    if (resultado.length <= limite) {
+      return resultado;
+    }
+  }
+
+  return resultado.length <= limite
+    ? resultado
+    : resultado.slice(0, limite - 3) + "...";
+}
 
 async function carregarChamadas() {
   const config = await getConfig();
@@ -177,12 +207,15 @@ async function carregarChamadas() {
     document.getElementById("nome").textContent = nome;
     document.getElementById("local").textContent = local;
 
-    montarHistorico(dados);
+    montarHistorico(dados, atual);
 
     if (atual.id !== state.ultimoId) {
       state.ultimoId = atual.id;
       tocarAlerta(config.alert);
-      falar(nome, local);
+
+      setTimeout(() => {
+        falar(nome, local);
+      }, 1500);
     }
   } catch (e) {
     console.error(e);
@@ -190,19 +223,55 @@ async function carregarChamadas() {
   }
 }
 
-function montarHistorico(dados) {
+function montarHistorico(dados, atual) {
   const lista = document.getElementById("lista");
   lista.innerHTML = "";
 
-  dados.slice(0, 4).forEach(item => {
-    const nome = item.nomeCliente ||
-      `${item.siglaSenha}${String(item.numeroSenha).padStart(3, "0")}`;
+  if (!Array.isArray(dados) || !atual) return;
 
-    const local = `${item.local} ${item.numeroLocal}`;
+  function gerarChave(item) {
+    if (!item) return "";
+
+    const nome = item.nomeCliente || "";
+    const sigla = item.siglaSenha || "";
+    const numero = item.numeroSenha || "";
+    const local = item.local || "";
+    const numeroLocal = item.numeroLocal || "";
+
+    return `${nome}-${sigla}-${numero}-${local}-${numeroLocal}`;
+  }
+
+  const chaveAtual = gerarChave(atual);
+  const chamadasJaMostradas = new Set();
+  
+  const historico = dados
+  .filter(item => {
+    if (!item) return false;
+    
+      const chaveItem = gerarChave(item);
+
+      if (chaveItem === chaveAtual) {
+        return false;
+      }
+
+      if (chamadasJaMostradas.has(chaveItem)) {
+        return false;
+      }
+      
+      chamadasJaMostradas.add(chaveItem);
+      return true;
+    })
+    
+    .slice(0, 4);
+    historico.forEach(item => {
+      const nome = item.nomeCliente ||
+      `${item.siglaSenha || ""}${String(item.numeroSenha || "").padStart(3, "0")}`;
+
+    const local = `${item.local || ""} ${item.numeroLocal || ""}`;
 
     const div = document.createElement("div");
     div.className = "item";
-    div.innerHTML = `${nome}<span>${local}</span>`;
+    div.innerHTML = `<strong>${abreviarNome(nome)}</strong><span>${local}</span>`;
     lista.appendChild(div);
   });
 }
@@ -212,6 +281,7 @@ function tocarAlerta(alerta) {
 
   const audio = new Audio(`static/sound/alert/${alerta}`);
   audio.play().catch(() => {});
+  
 }
 
 function falar(nome, local) {
@@ -219,14 +289,24 @@ function falar(nome, local) {
 
   speechSynthesis.cancel();
 
-  const fala = new SpeechSynthesisUtterance(`${nome}, ${local}`);
+  const nomecompleto = new SpeechSynthesisUtterance(`${nome}`);
 
-  fala.lang = "pt-BR";
-  fala.rate = 0.9;
-  fala.pitch = 1;
-  fala.volume = 1;
+  nomecompleto.lang = "pt-BR";
+  nomecompleto.rate = 0.7 ;
+  nomecompleto.pitch = 1;
+  nomecompleto.volume = 1;
 
-  speechSynthesis.speak(fala);
+  speechSynthesis.speak(nomecompleto);
+  
+  const localizacao = new SpeechSynthesisUtterance(`${local}`);
+
+  localizacao.lang = "pt-BR";
+  localizacao.rate = 0.5;
+  localizacao.pitch = 1;
+  localizacao.volume = 1;
+  
+  speechSynthesis.speak(localizacao);
+
 }
 
 function mostrarErro(titulo, subtitulo) {

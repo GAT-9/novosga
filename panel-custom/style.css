@@ -16,6 +16,13 @@ body {
   flex-direction: column;
 }
 
+.historico {
+  border-left: 4px solid black;
+  border-right: 4px solid black;
+  padding: 20px;
+
+}
+
 .chamada {
   flex: 1;
   display: flex;
@@ -36,15 +43,44 @@ body {
 }
 
 .chamada h2 {
-  font-size: clamp(60px, 6vw, 110px);
-  margin: 30px 0 0;
-  text-shadow: 3px 3px 8px #999;
+  font-size: clamp(60px, 6vw, 100px);
+  margin: 0px 0 0;
+  color:  #000000;
+  
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: black;
+}
+.chamada p{
+  font-size: 100px;
+  margin: 0px;
+}
+
+.cabecalho {
+  height: 100px;
+  display: flex;
+  align-items: bottom;
+  grid-template-columns: 350px 1fr;
+  justify-content: center;  
+}
+.navbar {
+  padding: 20px;  
+  display: flex;  
+
+}
+
+.logos img {
+  display: flex ;
+  max-width: 400px;
+  max-height: 400px;
+  align-content: center ;
+  align-items: center;
+  display: flex;
 }
 
 .rodape {
-  height: 200px;
+  height: 250px;
   display: grid;
-  grid-template-columns: 350px 1fr 350px;
+  grid-template-columns: 350px 1fr;
   border-top: 4px solid black;
 }
 
@@ -59,43 +95,64 @@ body {
 }
 
 .historico {
-  background: #02e39f;
+  background: #cef79ff8;
   border-left: 4px solid black;
   border-right: 4px solid black;
   padding: 20px;
+
 }
 
 .historico h3 {
   margin: 0 0 5px;
-  font-size: 24px;
+  font-size: 26px;
 }
 
 #lista {
-  display: flex;
-  gap: 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  height: 70%;
 }
 
 .item {
-  font-size: 38px;
-  font-weight: bold;
-}
-
-.item span {
-  display: block;
-  font-size: 26px;
-  font-weight: normal;
-}
-
-.logos {
+  position: relative;
+  height: 98%;
+  min-width: 0;
+  padding: 0px 20px 34px;
+  
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 25px;
-  background: white;
+
+  text-align: center;
 }
 
-.logos img {
-  max-width: 350px;
-  max-height: 350px;
+.item:last-child {
+  border-right: none;
 }
+
+.item strong {
+  display: block;
+  font-size: 55px;
+  line-height: 1.0;
+  font-weight: 700;
+  padding: 18px;
+  max-width: 100%;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+.item span {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  font-weight: bold;
+  
+  font-size: 35px;
+  line-height: 1.1;
+  text-align: center;
+}
+
+
 
