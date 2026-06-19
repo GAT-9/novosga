@@ -62,9 +62,9 @@ Encontre a linha conforme o tipo da unidade e a coluna conforme a quantidade de 
 
 | Estrutura da Unidade | 1 Tela | 2-3 Telas | 4+ Telas |
 |---|---:|---:|---:|
-| Unidade simples | R$ 1.000 | R$ 1.800 | R$ 2.200 |
-| Unidade média | R$ 1.400 | R$ 2.000 | R$ 2.600 |
-| Unidade complexa | R$ 1.600 | R$ 2.200 | R$ 3.000 |
+| Unidade simples | R$ 2.000 | R$ 2.500 | R$ 3.000 |
+| Unidade média | R$ 2.500 | R$ 3.000 | R$ 3.500 |
+| Unidade complexa | R$ 3.000 | R$ 3.500 | R$ 4.000 |
 | Grande estrutura | Consulte-nos | Consulte-nos | Consulte-nos |
 
 ---
@@ -75,7 +75,7 @@ Encontre a linha conforme o tipo da unidade e a coluna conforme a quantidade de 
 
 **Unidade média:** unidade com mais setores, mais pessoas usando o sistema ou necessidade maior de treinamento.
 
-**Unidade complexa:** hospital, secretaria ou unidade com setores separados, como recepção, triagem, marcação, regulação, TFD e outros.
+**Unidade complexa:** hospital, secretaria ou unidade com setores separados, como recepção, triagem, marcação, e outros.
 
 **Grande estrutura:** locais com muitos setores, várias telas de chamada ou necessidade de análise específica.
 
@@ -87,10 +87,9 @@ Após escolher o valor base da unidade, adicione o acréscimo conforme a quantid
 
 | Pessoas da equipe | Acréscimo |
 |---|---:|
-| Até 50 pessoas | Incluso ✅ |
-| 51-100 pessoas | + R$ 300 |
-| 101-150 pessoas | + R$ 600 |
-| 151+ pessoas | Consulte-nos |
+| Até 15 pessoas | Incluso ✅ |
+| 16 - 25 pessoas | + R$ 300 |
+| 26 - 35 pessoas | + R$ 600 |
 
 ---
 
@@ -99,20 +98,20 @@ Após escolher o valor base da unidade, adicione o acréscimo conforme a quantid
 #### 1. UBS Padrão
 
 - Unidade simples + 1 tela = R$ 1.000
-- Até 50 pessoas = Incluso
+- Até 15 pessoas = Incluso
 - **TOTAL: R$ 1.000** ✅
 
 #### 2. Secretaria de Saúde
 
-- Unidade média + 3 telas = R$ 2.000
-- 80 pessoas = + R$ 300
-- **TOTAL: R$ 2.300** ✅
+- Unidade média + 3 telas = R$ 3.000
+- 20 pessoas = + R$ 300
+- **TOTAL: R$ 3.300** ✅
 
 #### 3. Hospital Pequeno
 
-- Unidade complexa + 4 telas = R$ 3.000
-- 140 pessoas = + R$ 600
-- **TOTAL: R$ 3.600** ✅
+- Unidade complexa + 4 telas = R$ 4.000
+- 35 pessoas = + R$ 600
+- **TOTAL: R$ 4.700** ✅
 
 ---
 
