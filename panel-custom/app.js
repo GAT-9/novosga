@@ -262,7 +262,7 @@ function montarHistorico(dados, atual) {
       return true;
     })
     
-    .slice(0, 4);
+    .slice(0, 3);
     historico.forEach(item => {
       const nome = item.nomeCliente ||
       `${item.siglaSenha || ""}${String(item.numeroSenha || "").padStart(3, "0")}`;

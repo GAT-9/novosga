@@ -99,6 +99,7 @@ body {
   border-left: 4px solid black;
   border-right: 4px solid black;
   padding: 20px;
+  
 
 }
 
@@ -111,14 +112,16 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  height: 70%;
+  height: 93%;
+  
 }
 
 .item {
   position: relative;
-  height: 98%;
+  height: 80%;
   min-width: 0;
-  padding: 0px 20px 34px;
+  padding: 0px 19px 50px;
+  border-right: 4px solid rgba(0, 0, 0, 0.297);
   
   display: flex;
   align-items: center;

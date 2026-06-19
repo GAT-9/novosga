@@ -183,7 +183,7 @@
                 <target>Administração</target>
             </trans-unit>
             <trans-unit id="print.ticket.date">
-                <source>print.ticket.date</source>
+                <source>print.ticket.zdate</source>
                 <target>Hora de chegada %time% &lt;br&gt; ( Horário local )</target>
             </trans-unit>
             <trans-unit id="login.title">
