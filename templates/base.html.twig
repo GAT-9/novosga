@@ -23,6 +23,7 @@
                                 <li class="nav-item">
                                     <a href="{{ path('about') }}" title="{{ 'menu.about'|trans }}" class="nav-link">
                                         <i class="fa fa-question-circle fa-fw"></i>
+                                       
                                     </a>
                                 </li>
                             {% endif %}
@@ -34,18 +35,17 @@
                                 </li>
                             {% endif %}
                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle user-navbar-link" data-bs-toggle="dropdown">
                                     <i class="fa fa-user fa-fw"></i>
+                                    <span class="navbar-username">{{ app.user }}</span>
                                 </a>
+
                                 <div class="dropdown-menu dropdown-menu-end">
-                                    <a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">
-                                        {{ app.user }}
-                                    </a>
-                                    <div class="dropdown-divider"></div>
-                                    <a href="{{ path('profile_index') }}" title="" class="dropdown-item">
+                                    <a href="{{ path('profile_index') }}" class="dropdown-item">
                                         <i class="fa fa-user fa-fw"></i>
                                         {{ 'menu.user.profile'|trans }}
                                     </a>
+
                                     <a href="{{ path('_logout_main') }}" class="dropdown-item">
                                         <i class="fa fa-sign-out fa-fw"></i>
                                         {{ 'menu.user.logout'|trans }}

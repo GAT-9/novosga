@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  background: white;
+}
+
+.painel {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.historico {
+  border-left: 4px solid black;
+  border-right: 4px solid black;
+  padding: 20px;
+
+}
+
+.chamada {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 40px;
+}
+
+.chamada h1 {
+  font-size: clamp(70px, 9vw, 160px);
+  margin: 0;
+  line-height: 1.1;
+  text-shadow: 3px 3px 8px #999;
+  word-break: break-word;
+}
+
+.chamada h2 {
+  font-size: clamp(60px, 6vw, 100px);
+  margin: 0px 0 0;
+  color:  #000000;
+  
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: black;
+}
+.chamada p{
+  font-size: 100px;
+  margin: 0px;
+}
+
+.cabecalho {
+  height: 100px;
+  display: flex;
+  align-items: bottom;
+  grid-template-columns: 350px 1fr;
+  justify-content: center;  
+}
+.navbar {
+  padding: 20px;  
+  display: flex;  
+
+}
+
+.logos img {
+  display: flex ;
+  max-width: 400px;
+  max-height: 400px;
+  align-content: center ;
+  align-items: center;
+  display: flex;
+}
+
+.rodape {
+  height: 250px;
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  border-top: 4px solid black;
+}
+
+.hora {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 75px;
+  font-weight: bold;
+  background: #f2f2f2;
+  text-shadow: 2px 2px 5px #aaa;
+}
+
+.historico {
+  background: #cef79ff8;
+  border-left: 4px solid black;
+  border-right: 4px solid black;
+  padding: 20px;
+  
+
+}
+
+.historico h3 {
+  margin: 0 0 5px;
+  font-size: 26px;
+}
+
+#lista {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  height: 93%;
+  
+}
+
+.item {
+  position: relative;
+  height: 80%;
+  min-width: 0;
+  padding: 0px 19px 50px;
+  border-right: 4px solid rgba(0, 0, 0, 0.297);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.item:last-child {
+  border-right: none;
+}
+
+.item strong {
+  display: block;
+  font-size: 55px;
+  line-height: 1.0;
+  font-weight: 700;
+  padding: 18px;
+  max-width: 100%;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+.item span {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  font-weight: bold;
+  
+  font-size: 35px;
+  line-height: 1.1;
+  text-align: center;
+}
+
+
+
