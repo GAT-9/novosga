@@ -4,27 +4,30 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/login.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('custom.css') }}?v=1" />
 {% endblock %}
 
 {% block body_content %}
-    <div class="container">
-        <form id="login-form" action="{{ path('app_login') }}" method="post" class="form-signin">
-            <h2 id="logo" class="form-signin-heading">
-                <img alt="NovoSGA" src="{{ asset(logoLogin) }}" height="107">
-            </h2>
-            {% if error %}
-                <div class="alert alert-danger">
-                    {{ error.messageKey|trans(error.messageData, 'security')|raw }}
+    <div class="login-page-custom">
+        <div class="login-box-custom">
+            <form id="login-form" action="{{ path('app_login') }}" method="post" class="form-signin">
+                <h2 id="logo" class="form-signin-heading">
+                    <img alt="NovoSGA" src="{{ asset(logoLogin) }}" height="107">
+                </h2>
+                {% if error %}
+                    <div class="alert alert-danger">
+                        {{ error.messageKey|trans(error.messageData, 'security')|raw }}
+                    </div>
+                {% endif %}
+                <div id="login" class="d-grid">
+                    <input type="text" name="username" class="form-control" placeholder="{{ 'label.username'|trans }}" autofocus value="{{ last_username }}">
+                    <input type="password" name="password" class="form-control" placeholder="{{ 'label.password'|trans }}">
+                    <button class="btn btn-lg btn-primary" type="submit">{{ 'login.button.submit'|trans }}</button>
                 </div>
-            {% endif %}
-            <div id="login" class="d-grid">
-                <input type="text" name="username" class="form-control" placeholder="{{ 'label.username'|trans }}" autofocus value="{{ last_username }}">
-                <input type="password" name="password" class="form-control" placeholder="{{ 'label.password'|trans }}">
-                <button class="btn btn-lg btn-primary" type="submit">{{ 'login.button.submit'|trans }}</button>
-            </div>
 
-            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-        </form>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            </form>
+        </div>
     </div>
+
 {% endblock %}

@@ -6,7 +6,7 @@
 parameters:
     locale: '%env(APP_LANGUAGE)%'
     version: '2.2.13' # x-release-please-version
-    title: 'NovoSGA CE'
+    title: 'NovoSGA'
     mercure_url: '%env(MERCURE_PUBLIC_URL)%'
     app.build_number: '%env(default::APP_BUILD_NUMBER)%'
     # https://symfony.com/doc/current/performance.html

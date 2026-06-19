@@ -2,18 +2,6 @@
 
 {% block body %}
     <div class="container-fluid">
-        <div id="welcome-message" class="h-100 px-5 py-4 bg-body-tertiary border rounded-3 alert-dismissible fade show" style="display: none;">
-            <div class="container">
-                <h1>{{ 'home.welcome.title'|trans({'%name%': app.user }) }}</h1>
-                <p>{{ 'home.welcome.subtitle'|trans }}</p>
-                <p>
-                    <a class="btn btn-primary btn-lg" href="{{ path('about') }}" role="button">
-                        {{ 'home.welcome.button.read'|trans }} &raquo;
-                    </a>
-                </p>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" data-bs-target="#welcome-message" aria-label="Close"></button>
-            </div>
-        </div>
         <div class="quick-menu py-5">
             <div class="row">
                 {% for module in modules %}
@@ -89,25 +77,6 @@
             {% endif %}
         </div>
     </div>
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    <script>
-        const WELCOME_MESSAGE_DISMISS_KEY = 'novosga.welcome-message';
-        const WELCOME_MESSAGE_DISMISS_VALUE = 'dismissed';
-
-        const welcomeMessage = document.getElementById('welcome-message')
-        welcomeMessage.addEventListener('closed.bs.alert', (event) => {
-            localStorage.setItem(WELCOME_MESSAGE_DISMISS_KEY, WELCOME_MESSAGE_DISMISS_VALUE);
-        });
-
-        if (localStorage.getItem(WELCOME_MESSAGE_DISMISS_KEY) === WELCOME_MESSAGE_DISMISS_VALUE) {
-            welcomeMessage.style.display = 'none';
-        } else {
-            welcomeMessage.style.display = 'block';
-        }
-    </script>
 {% endblock %}
 
 {% block stylesheets %}

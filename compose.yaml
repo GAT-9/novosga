@@ -9,10 +9,15 @@ services:
       - "80:8080"
     volumes:
       - ./imagens:/var/www/html/public/images
+      - ./novosga-custom/custom.css:/var/www/html/public/custom.css
+      - ./templates/skeleton.html.twig:/var/www/html/templates/skeleton.html.twig
       - ./NovosgaCustomersBundle.pt_BR.xlf:/var/www/html/vendor/novosga/customers-bundle/src/Resources/translations/NovosgaCustomersBundle.pt_BR.xlf
       - ./NovosgaTriageBundle.pt_BR.xlf:/var/www/html/vendor/novosga/triage-bundle/src/Resources/translations/NovosgaTriageBundle.pt_BR.xlf
       - ./NovosgaAttendanceBundle.pt_BR.xlf:/var/www/html/vendor/novosga/attendance-bundle/src/Resources/translations/NovosgaAttendanceBundle.pt_BR.xlf
       - ./templates/attendance-index.html.twig:/var/www/html/vendor/novosga/attendance-bundle/src/Resources/views/default/index.html.twig
+      - ./templates/security/login.html.twig:/var/www/html/templates/security/login.html.twig    
+      - ./templates/base.html.twig:/var/www/html/templates/base.html.twig
+      - ./templates:/var/www/html/templates
 
     environment:
       APP_ENV: 'prod'
@@ -21,7 +26,7 @@ services:
       NOVOSGA_ADMIN_PASSWORD: '123456'
       NOVOSGA_ADMIN_FIRSTNAME: 'Administrador'
       NOVOSGA_ADMIN_LASTNAME: 'Global'
-      NOVOSGA_UNITY_NAME: 'Unidade Vereador Durval Samuel de Souza - Andaia'
+      NOVOSGA_UNITY_NAME: 'Secretaria de Saúde - HOME'
       NOVOSGA_UNITY_CODE: 'U01'
       NOVOSGA_NOPRIORITY_NAME: 'Normal'
       NOVOSGA_NOPRIORITY_DESCRIPTION: 'Atendimento normal'
@@ -33,7 +38,7 @@ services:
       MERCURE_URL: http://mercure:3000/.well-known/mercure
       MERCURE_PUBLIC_URL: http://localhost:3000/.well-known/mercure
       MERCURE_JWT_SECRET: "eyJhbGciOiJIUzI1NiJ9.eyJtZXJjdXJlIjp7InB1Ymxpc2giOlsiKiJdfX0.Carr3UqDSoWjUY4fCOrizjTZ4a2LQ6cx35cd6QdahZY"
-
+  
   mercure:
     image: novosga/mercure:v0.11
     restart: always
@@ -54,6 +59,8 @@ services:
     environment:
       VUE_APP_API_BASE_URL: http://localhost
       VUE_APP_MERCURE_URL: http://localhost:3000/.well-known/mercure
+    volumes:
+      - ./panel-custom:/usr/share/nginx/html
 
   mysqldb:
     image: mysql:8.0

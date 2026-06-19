@@ -1,0 +1,11 @@
+{
+  "server": "http://localhost",
+  "unity": 2,
+  "services": [5],
+  "alert": "ekiga-vm.wav",
+  "speech": true,
+  "username": "admin",
+  "password": "123456",
+  "clientId": "be355a0259bae561744e42895b220d0b",
+  "clientSecret": "00debf91b7770777f7ebf72a1335dec9e07b1db482d995f32ad6f705c42f91e303e41d1eb60401c683d73c7012d4fb17afb3e5fa1d9e3b1153255f5ba5edf9ff"
+}   
