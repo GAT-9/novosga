@@ -202,7 +202,10 @@ async function carregarChamadas() {
     const nome = atual.nomeCliente ||
       `${atual.siglaSenha}${String(atual.numeroSenha).padStart(3, "0")}`;
 
-    const local = `${atual.local} ${atual.numeroLocal}`;
+    // Se o atual.local ja possui a numeração das salas (ex: "Sala 01"), nao mostre o numeroLocal, caso contrario, mostre o local e o numeroLocal juntos (ex: "Sala 01").
+    const local = (atual.local && /\d/.test(String(atual.local)))
+      ? String(atual.local)
+      : `${atual.local} ${atual.numeroLocal}`;
 
     document.getElementById("nome").textContent = nome;
     document.getElementById("local").textContent = local;
@@ -267,7 +270,9 @@ function montarHistorico(dados, atual) {
       const nome = item.nomeCliente ||
       `${item.siglaSenha || ""}${String(item.numeroSenha || "").padStart(3, "0")}`;
 
-    const local = `${item.local || ""} ${item.numeroLocal || ""}`;
+    const local = (item.local && /\d/.test(String(item.local)))
+      ? String(item.local)
+      : `${item.local || ""} ${item.numeroLocal || ""}`;
 
     const div = document.createElement("div");
     div.className = "item";
